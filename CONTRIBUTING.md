@@ -7,7 +7,7 @@ Thanks for helping. decidekit is small on purpose: TypeScript (strict), ESM, com
 You need Node.js 22.12 or newer.
 
 ```sh
-git clone <this repository's URL> decidekit
+git clone https://github.com/farazfookeer/decidekit.git
 cd decidekit
 npm install
 npm run build

@@ -5,6 +5,14 @@
   "type": "module",
   "license": "MIT",
   "author": "Faraz Fookeer",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/farazfookeer/decidekit.git"
+  },
+  "homepage": "https://github.com/farazfookeer/decidekit#readme",
+  "bugs": {
+    "url": "https://github.com/farazfookeer/decidekit/issues"
+  },
   "engines": {
     "node": ">=22.12"
   },
@@ -23,6 +31,8 @@
     "dist"
   ],
   "scripts": {
+    "clean": "node -e \"require('node:fs').rmSync('dist',{recursive:true,force:true})\"",
+    "prebuild": "npm run clean",
     "build": "tsc -p tsconfig.build.json",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",

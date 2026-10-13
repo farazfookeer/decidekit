@@ -30,7 +30,7 @@ It uses plain `fetch` (no vendor SDKs) and has one runtime dependency (`yaml`).
 decidekit isn't published to npm yet, so install it from a git clone:
 
 ```sh
-git clone <this repository's URL> decidekit
+git clone https://github.com/farazfookeer/decidekit.git
 cd decidekit
 npm install
 npm run build

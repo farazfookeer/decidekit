@@ -17,7 +17,7 @@ decidekit is a free, open-source TypeScript library and CLI that turns any LLM i
 - `dist/`: build output. Git-ignored, so never edit it by hand.
 
 ## How we build here
-- Stack: TypeScript (strict), Node >=22, ESM (`"type": "module"`), compiled with `tsc`, tested with Vitest. It's a small, standard toolchain with no bundler and no `tsx`.
+- Stack: TypeScript (strict), Node >=22.12, ESM (`"type": "module"`), compiled with `tsc`, tested with Vitest. It's a small, standard toolchain with no bundler and no `tsx`.
 - Imports: ESM with explicit `.js` extensions on relative imports (`import { x } from "./foo.js"`), including in tests. Use `node:` prefixes for built-ins and `import type` for type-only imports (`verbatimModuleSyntax` is on).
 - Strictness: `strict` and `noUncheckedIndexedAccess` are on. Don't use `any` or `@ts-ignore` unless a comment explains why.
 - HTTP: providers call the APIs with the global `fetch`. Don't add vendor SDKs.
