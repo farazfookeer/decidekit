@@ -1,0 +1,4 @@
+questions:
+  urgent:
+    type: boolean
+    instructions: Does this need a reply today?

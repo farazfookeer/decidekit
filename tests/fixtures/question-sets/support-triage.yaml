@@ -1,0 +1,17 @@
+name: support-triage
+version: 1
+description: Route incoming support emails.
+questions:
+  urgent:
+    type: boolean
+    instructions: Does this need a reply today?
+  team:
+    type: choice
+    instructions: Which team should handle it?
+    options: [Billing, Technical, Sales, Account]
+  frustration:
+    type: score
+    instructions: How frustrated is the customer?
+    min: 1
+    max: 5
+    integer: true

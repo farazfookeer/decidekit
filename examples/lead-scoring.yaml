@@ -1,0 +1,34 @@
+name: lead-scoring
+version: 1
+description: Qualify an inbound sales enquiry and decide how quickly sales should follow up.
+questions:
+  serious_buyer:
+    type: boolean
+    instructions: >-
+      Answer true if the enquiry shows real buying intent: a concrete need, a
+      timeline, a request for pricing, a quote or a demo, or a named decision
+      process. Answer false for students, job seekers, vendors pitching their own
+      services, vague curiosity, or requests for free help only.
+  budget_mentioned:
+    type: boolean
+    instructions: >-
+      Answer true only if the enquiry states or clearly implies an amount of
+      money, a budget range, or that budget has been approved. Answer false if
+      money is not mentioned or the writer only asks what it costs.
+  company_size:
+    type: choice
+    instructions: >-
+      Pick the number of employees at the enquirer's company. Use a stated
+      headcount if there is one; otherwise estimate from clues such as number of
+      offices, teams or users. If there are no clues at all, choose "1-50".
+    # Quoted so YAML always reads every option as text.
+    options: ["1-50", "51-250", "251-1000", "1000+"]
+  priority:
+    type: score
+    instructions: >-
+      Rate how quickly sales should follow up. 1 = no follow-up needed, 2 = add to
+      newsletter, 3 = follow up this week, 4 = follow up within one working day,
+      5 = contact today (serious buyer with budget and a near-term deadline).
+    min: 1
+    max: 5
+    integer: true

@@ -1,0 +1,30 @@
+name: invoice-check
+version: 1
+description: Compare a supplier invoice against its purchase order and decide whether it can be paid automatically.
+questions:
+  amounts_match:
+    type: boolean
+    instructions: >-
+      Compare the INVOICE total with the PURCHASE ORDER total. Answer true if they
+      are equal (allow a difference of up to 0.01 for rounding). Answer false if
+      the totals differ, or if either total is missing.
+  issue:
+    type: choice
+    instructions: >-
+      Pick the single most important problem with the invoice.
+      None: invoice matches the purchase order.
+      Price difference: a unit price on the invoice differs from the purchase order.
+      Quantity difference: a quantity on the invoice differs from the purchase order.
+      Missing PO: the invoice does not quote a purchase order number, or quotes one
+      that does not match the PURCHASE ORDER section.
+      Duplicate invoice: the text says this invoice number has already been
+      received or paid. If several problems apply, prefer Duplicate invoice, then
+      Missing PO, then Price difference, then Quantity difference.
+    options: [None, Price difference, Quantity difference, Missing PO, Duplicate invoice]
+  needs_approval:
+    type: boolean
+    instructions: >-
+      Answer true if a person must approve this invoice before payment: any issue
+      other than None, or an invoice total above 5,000 in any currency. Answer
+      false only if the invoice matches the purchase order and the total is 5,000
+      or less.

@@ -1,0 +1,38 @@
+name: ai-answer-check
+version: 1
+description: Review an AI assistant's answer to a user question for relevance, accuracy risk, tone and overall quality.
+questions:
+  answered_question:
+    type: boolean
+    instructions: >-
+      Read the USER QUESTION and the AI ANSWER. Answer true if the answer directly
+      addresses what the user actually asked, even if briefly. Answer false if it
+      answers a different question, only restates the question, refuses without a
+      good reason, or leaves the main point unanswered.
+  contains_dubious_claim:
+    type: boolean
+    instructions: >-
+      Answer true if the AI ANSWER states something as fact that is likely wrong,
+      unverifiable, or overconfident: invented statistics, made-up sources or
+      quotes, guarantees about outcomes, or claims that contradict common
+      knowledge. Answer false if every factual claim is reasonable and hedged
+      where it should be. Do not count opinions clearly labelled as opinions.
+  tone:
+    type: choice
+    instructions: >-
+      Pick the tone of the AI ANSWER towards the user.
+      Helpful: warm, patient and constructive.
+      Neutral: plain and factual, neither warm nor cold.
+      Curt: abrupt or dismissive but not insulting.
+      Rude: condescending, mocking or insulting.
+    options: [Helpful, Neutral, Curt, Rude]
+  quality:
+    type: score
+    instructions: >-
+      Rate the overall quality of the AI ANSWER as a response to this USER
+      QUESTION, considering relevance, correctness, clarity and usefulness.
+      1-2 = useless or harmful, 3-4 = poor, 5-6 = acceptable with clear gaps,
+      7-8 = good, 9-10 = excellent and complete.
+    min: 1
+    max: 10
+    integer: true

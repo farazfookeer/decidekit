@@ -1,0 +1,10 @@
+name: minimal
+questions:
+  refunded:
+    type: boolean
+    instructions: Was the customer refunded?
+  confidence_level:
+    type: score
+    instructions: How sure is the author?
+    min: 0
+    max: 1

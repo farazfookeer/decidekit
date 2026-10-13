@@ -1,0 +1,52 @@
+name: content-moderation
+version: 1
+description: Screen a user-submitted comment for spam and policy problems before it is published.
+questions:
+  spam:
+    type: boolean
+    instructions: >-
+      Answer true if the comment is mainly promotional or automated: unrelated
+      links, advertising, "get rich quick" offers, requests to contact someone
+      off-site, or the same text repeated. Answer false for genuine comments,
+      including ones that are rude or off-topic but written by a real person
+      engaging with the post.
+  category:
+    type: choice
+    instructions: >-
+      Pick the category that best describes any policy problem in the comment.
+      Safe: no policy problem (mild disagreement, criticism or spam alone counts
+      as Safe here; spam is covered by its own question).
+      Harassment: insults or personal attacks aimed at a specific person.
+      Where criticism stops and harassment starts: criticising someone's work,
+      competence or opinions is Safe, even when it is blunt, sarcastic or rude
+      ("this list is lazy", "did the author even own a plant?"), and so is a
+      general put-down not aimed at anyone in particular ("anyone with half a
+      brain knows..."). It becomes Harassment when it attacks the person
+      rather than their work: name-calling or slurs aimed at them ("the author
+      is an idiot"), mocking their appearance or private life, telling them to
+      go away or quit, or repeatedly targeting them.
+      Hate: attacks on people because of a protected characteristic such as
+      race, religion, gender, sexuality or disability.
+      Self-harm: mentions of the writer or someone else wanting to hurt themselves.
+      Sexual: sexual content.
+      Violence: threats or encouragement of physical harm.
+      Other: a policy problem not covered above, such as sharing someone's
+      private details. Choose the most serious category if several apply.
+    options: [Safe, Harassment, Hate, Self-harm, Sexual, Violence, Other]
+  needs_human_review:
+    type: boolean
+    instructions: >-
+      Answer true if a moderator should look at this comment before any action is
+      taken: the category is anything other than Safe, the meaning is ambiguous
+      (sarcasm, in-jokes, possible coded language), or the comment mentions
+      self-harm in any way. Answer false if it is clearly fine or clearly just spam.
+  severity:
+    type: score
+    instructions: >-
+      Rate how serious the policy problem is. 0 = none, 1 = low (mild rudeness,
+      borderline content), 2 = medium (clear personal insult or clear policy
+      breach), 3 = high (threats, hate, self-harm risk or anything needing urgent
+      action). Spam alone with no other problem is 0.
+    min: 0
+    max: 3
+    integer: true

@@ -1,0 +1,188 @@
+# Labelled examples for support-triage.yaml.
+# Run: decidekit test examples/support-triage.yaml examples/support-triage.examples.yaml
+# All names, companies and emails are fictional.
+description: Hand-labelled support emails covering every team, calm and angry customers.
+examples:
+  - id: double-charge-locked-out
+    input: |
+      Subject: Charged twice this month and now I can't log in
+
+      I've been charged twice for our Team plan this month (two payments of $49
+      on 3 October). On top of that, since yesterday none of us can log in: we
+      just get "Error 500" after entering our password. This is the second time
+      I've written and I haven't heard back. We have a client presentation
+      tomorrow morning. Please fix the login today and refund the duplicate charge.
+      If this isn't sorted I'll have to look at other options.
+
+      Sam Ortega, Brightfold Studio
+    expected:
+      urgent: true
+      team: Billing
+      refund_requested: true
+      frustration: 4
+
+  - id: invoice-copy
+    input: |
+      Hello,
+
+      Could you send me a copy of our September invoice with our VAT number on
+      it? Our accountant needs it for the quarterly return, no rush at all.
+
+      Many thanks,
+      Priya Nandakumar, Tealbrook Bakery
+    expected:
+      urgent: false
+      team: Billing
+      refund_requested: false
+      frustration: 1
+
+  - id: charged-after-cancelling
+    input: |
+      Subject: Annual renewal after I cancelled
+
+      I cancelled our subscription on 2 October (I have the confirmation email)
+      but this morning you took $588 for another year. That's not OK. Please
+      reverse the charge.
+
+      Dan Whitlock
+    expected:
+      urgent: true
+      team: Billing
+      refund_requested: true
+      frustration: 3
+
+  - id: sync-outage-angry
+    input: |
+      Subject: THIRD email - sync completely broken
+
+      Your sync has been down since 6am. Every one of our 30 users sees "Sync
+      failed (code 503)" and nobody can open a single project. This is the third
+      time I've written today and all I get is an automated reply. Ridiculous.
+      Fix it or we're moving to a competitor this week.
+
+      Marta Kowalczyk, Ferngate Logistics
+    expected:
+      urgent: true
+      team: Technical
+      refund_requested: false
+      frustration: 4
+
+  - id: slow-export
+    input: |
+      Hi team,
+
+      CSV exports of large reports have become slow, around five minutes for
+      10,000 rows. It's a little inconvenient, but splitting the report into
+      smaller date ranges works fine for now. Is a fix planned?
+
+      Thanks, Joel Ambrose
+    expected:
+      urgent: false
+      team: Technical
+      refund_requested: false
+      frustration: 2
+
+  - id: webhook-launch-tomorrow
+    input: |
+      Hello,
+
+      Our webhook integration stopped sending order events after we rotated the
+      signing secret. The logs show "signature mismatch". We launch our new shop
+      at 9am tomorrow and need this working before then. Could someone take a
+      look today, please?
+
+      Best, Aiko Tanabe, Little Lantern Toys
+    expected:
+      urgent: true
+      team: Technical
+      refund_requested: false
+      frustration: 2
+
+  - id: seats-quote
+    input: |
+      Hi there,
+
+      We're very happy with the product and would like to add 25 seats for our
+      new support team next quarter. Could you send a quote and book a short demo
+      of the admin features for our IT lead?
+
+      Cheers, Oliver Brandt, Kestrel Analytics
+    expected:
+      urgent: false
+      team: Sales
+      refund_requested: false
+      frustration: 1
+
+  - id: sales-no-reply
+    input: |
+      Subject: Trying to give you money
+
+      I've asked your sales team three times for Enterprise pricing and nobody
+      has replied. Honestly, it's getting tiresome. We want to upgrade 120 users;
+      does anyone there want our business?
+
+      Rachel Okafor, Northwind Clinics
+    expected:
+      urgent: false
+      team: Sales
+      refund_requested: false
+      frustration: 4
+
+  - id: reset-email-missing
+    input: |
+      Hi,
+
+      I forgot my password and the reset email never arrives (I've checked spam).
+      I can't get into my account at all. Could you help?
+
+      Thanks, Lena Fischer
+    expected:
+      urgent: true
+      team: Account
+      refund_requested: false
+      frustration: 2
+
+  - id: change-owner
+    input: |
+      Hello,
+
+      Our previous administrator, Tom, has left the company. Please make me the
+      account owner instead. I'm happy to verify my identity however you need.
+
+      Kind regards, Grace Mbeki, Sunfield Architects
+    expected:
+      urgent: false
+      team: Account
+      refund_requested: false
+      frustration: 1
+
+  - id: suspicious-sign-in-furious
+    input: |
+      Subject: WHO IS IN MY ACCOUNT
+
+      I just got an alert that someone signed in to my account from a country
+      I've never been to. This is absolutely disgraceful. You people clearly
+      can't keep anything secure. Lock it down NOW and tell me what they saw,
+      or I'm reporting you.
+
+      Viktor Hale
+    expected:
+      urgent: true
+      team: Account
+      refund_requested: false
+      frustration: 5
+
+  - id: close-account-refund
+    input: |
+      Hi,
+
+      We're closing down the business at the end of the month, so please close
+      our account. We paid annually in July; could you refund the unused months?
+      Sorry to go, it's been a good tool.
+
+      Best wishes, Hannah Corley, Corley & Daughters Florists
+    expected:
+      urgent: false
+      team: Billing
+      refund_requested: true
+      frustration: 1

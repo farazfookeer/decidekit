@@ -1,0 +1,42 @@
+name: support-triage
+version: 1
+description: Route an incoming customer support email to the right team and flag how urgent it is.
+questions:
+  urgent:
+    type: boolean
+    instructions: >-
+      Answer true if the customer needs a reply today: they cannot use the product
+      at all, they are being charged incorrectly right now, a deadline within the
+      next 24 hours is mentioned, or there is a security or data-loss concern.
+      Answer false for general questions, feature requests and issues with a
+      workaround.
+  team:
+    type: choice
+    instructions: >-
+      Pick the one team best placed to resolve the main issue in the email.
+      Billing: charges, invoices, refunds, payment methods, plan prices.
+      Technical: bugs, error messages, outages, integrations, performance. An
+      error message or outage is Technical even when it stops people logging in.
+      Sales: buying more seats, upgrading, quotes, demos, new contracts.
+      Account: login problems with no error message (forgotten password, reset
+      email not arriving, suspicious sign-ins), user permissions, changing the
+      account owner, closing the account. If several teams apply, use this
+      priority: Billing first whenever money is involved (a wrong charge or a
+      request for money back), then Technical, then Account, then Sales.
+    options: [Billing, Technical, Sales, Account]
+  refund_requested:
+    type: boolean
+    instructions: >-
+      Answer true only if the customer explicitly asks for money back (a refund,
+      a credit, a chargeback or reversing a charge). Complaining about a price
+      without asking for money back is false.
+  frustration:
+    type: score
+    instructions: >-
+      Rate how frustrated the customer sounds, based on their wording rather than
+      the seriousness of the problem. 1 = calm or positive, 2 = mildly
+      inconvenienced, 3 = clearly annoyed, 4 = angry (strong language, repeated
+      contact, threats to leave), 5 = furious or hostile.
+    min: 1
+    max: 5
+    integer: true

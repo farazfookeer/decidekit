@@ -1,0 +1,5 @@
+name: bad-type
+questions:
+  mood:
+    type: emotion
+    instructions: How does the customer feel?

@@ -1,0 +1,5 @@
+name: bad-key
+questions:
+  Urgent-Flag:
+    type: boolean
+    instructions: Does this need a reply today?

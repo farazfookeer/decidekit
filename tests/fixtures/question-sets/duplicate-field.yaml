@@ -1,0 +1,7 @@
+name: dup-field
+questions:
+  team:
+    type: choice
+    instructions: Which team should handle it?
+    options: [Billing, Sales]
+    options: [Technical, Account]

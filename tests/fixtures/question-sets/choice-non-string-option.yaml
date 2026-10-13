@@ -1,0 +1,6 @@
+name: bad-choice
+questions:
+  team:
+    type: choice
+    instructions: Which team should handle it?
+    options: [Billing, 42]

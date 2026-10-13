@@ -1,0 +1,35 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: Node ${{ matrix.node }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        node: [22, 24]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+          cache: npm
+      - run: npm ci
+      - name: Type-check (also enforces the type tests in tests/*.types.test.ts)
+        run: npm run typecheck
+      # Build before testing: tests/package.test.ts checks the built package
+      # (the "exports" entry, the bin and the npm pack file list).
+      - run: npm run build
+      - run: npm test
+      - name: CLI starts
+        run: node dist/cli.js --help
+      - name: Package contents
+        run: npm pack --dry-run

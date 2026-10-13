@@ -1,0 +1,41 @@
+{
+  "name": "decidekit",
+  "version": "0.0.0",
+  "description": "Turn any LLM into a typed decision engine: boolean, choice and score questions with validated answers.",
+  "type": "module",
+  "license": "MIT",
+  "author": "Faraz Fookeer",
+  "engines": {
+    "node": ">=22.12"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "bin": {
+    "decidekit": "dist/cli.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "smoke:anthropic": "node scripts/smoke-anthropic.mjs",
+    "smoke:ollama": "node scripts/smoke-ollama.mjs"
+  },
+  "dependencies": {
+    "yaml": "^2.9.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.20.5",
+    "typescript": "^5.9.3",
+    "vitest": "^4.1.11"
+  }
+}

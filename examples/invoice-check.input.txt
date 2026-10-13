@@ -1,0 +1,18 @@
+PURCHASE ORDER
+PO number: PO-20481
+Supplier: Northwind Office Supplies (fictional)
+Date: 2 September 2026
+Lines:
+  1. A4 copier paper, box of 5 reams    qty 20   unit 24.00   line 480.00
+  2. Black toner cartridge TN-450       qty 6    unit 62.50   line 375.00
+Total: 855.00 GBP
+
+INVOICE
+Invoice number: NW-77310
+PO reference: PO-20481
+Date: 18 September 2026
+Lines:
+  1. A4 copier paper, box of 5 reams    qty 20   unit 24.00   line 480.00
+  2. Black toner cartridge TN-450       qty 6    unit 68.00   line 408.00
+Total: 888.00 GBP
+Payment terms: 30 days

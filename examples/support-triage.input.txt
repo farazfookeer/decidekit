@@ -1,0 +1,16 @@
+Subject: Charged twice this month and now I can't log in
+
+Hi,
+
+I've been charged twice for our Team plan this month (two payments of $49 on
+3 October). On top of that, since yesterday none of us can log in: we just get
+"Error 500" after entering our password.
+
+This is the second time I've written about this and I haven't heard back. We
+have a client presentation tomorrow morning and all our files are in your app.
+Please fix the login today and refund the duplicate charge.
+
+If this isn't sorted I'll have to look at other options.
+
+Sam Ortega
+Operations Lead, Brightfold Studio (fictional)

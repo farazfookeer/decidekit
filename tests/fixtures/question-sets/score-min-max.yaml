@@ -1,0 +1,7 @@
+name: bad-score
+questions:
+  frustration:
+    type: score
+    instructions: How frustrated is the customer?
+    min: 5
+    max: 5

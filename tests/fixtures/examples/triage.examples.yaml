@@ -1,0 +1,25 @@
+# Test fixture for examples/support-triage.yaml. Each input carries a marker
+# the fake provider in tests/cliTest.test.ts keys its answers on.
+examples:
+  - id: case-a
+    input: "MARKER-A: charged twice, please refund"
+    expected:
+      urgent: true
+      team: Billing
+      refund_requested: true
+      frustration: 4
+  - id: case-b
+    input: "MARKER-B: quote for more seats"
+    expected:
+      urgent: false
+      team: Sales
+      frustration: 1
+  - id: case-c
+    input: "MARKER-C: everything is down"
+    expected:
+      team: Technical
+      frustration: 5
+  - input: "MARKER-D: reset email missing"
+    expected:
+      urgent: true
+      refund_requested: false
