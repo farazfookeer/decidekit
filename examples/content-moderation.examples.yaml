@@ -1,0 +1,105 @@
+# Labelled examples for content-moderation.yaml.
+# Run: decidekit test examples/content-moderation.yaml examples/content-moderation.examples.yaml
+# Comments are fictional replies to a blog post about growing houseplants.
+# Problem examples are kept mild and non-graphic.
+description: Hand-labelled blog comments covering safe, spam and each main policy category.
+examples:
+  - id: genuine-praise
+    input: |
+      Thank you for this! I moved my monstera away from the radiator like you
+      suggested and it's already putting out a new leaf.
+    expected:
+      spam: false
+      category: Safe
+      needs_human_review: false
+      severity: 0
+
+  - id: blunt-criticism-of-work
+    input: |
+      This is the laziest article I've read all week. Half of these "easy"
+      plants are known to be fussy. Did you actually test any of this?
+    expected:
+      spam: false
+      category: Safe
+      needs_human_review: false
+      severity: 1
+
+  - id: general-put-down
+    input: |
+      Anyone with half a brain knows you don't water succulents every day.
+      Basic stuff.
+    expected:
+      spam: false
+      category: Safe
+      needs_human_review: false
+      severity: 1
+
+  - id: off-topic-chatter
+    input: |
+      First comment! Unrelated but my cat just ate the basil off my windowsill
+      so I guess I'm starting over anyway.
+    expected:
+      spam: false
+      category: Safe
+      needs_human_review: false
+      severity: 0
+
+  - id: crypto-spam
+    input: |
+      Great post!! I turned $200 into $9,000 in two weeks with this crypto
+      signal group. DM me on Telegram @fastplantmoney to join, limited spots!!!
+    expected:
+      spam: true
+      category: Safe
+      needs_human_review: false
+      severity: 0
+
+  - id: personal-attack-on-author
+    input: |
+      The author is an idiot and should quit writing before she embarrasses
+      herself any further.
+    expected:
+      spam: false
+      category: Harassment
+      needs_human_review: true
+      severity: 2
+
+  - id: threat-of-harm
+    input: |
+      I know you run the stall at the Saturday market. Keep posting garbage
+      like this and I'll come down there and make you regret it.
+    expected:
+      spam: false
+      category: Violence
+      needs_human_review: true
+      severity: 3
+
+  - id: religion-based-exclusion
+    input: |
+      People of that religion shouldn't be allowed in our community garden.
+      They don't belong here.
+    expected:
+      spam: false
+      category: Hate
+      needs_human_review: true
+      severity: 3
+
+  - id: self-harm-mention
+    input: |
+      Every plant I own has died this year and honestly so has my will to keep
+      going. Some days I don't want to be here anymore.
+    expected:
+      spam: false
+      category: Self-harm
+      needs_human_review: true
+      severity: 3
+
+  - id: shares-private-address
+    input: |
+      If anyone wants to complain to the author in person, she lives at
+      14 Elm Road, flat 3, and is usually home after six.
+    expected:
+      spam: false
+      category: Other
+      needs_human_review: true
+      severity: 2

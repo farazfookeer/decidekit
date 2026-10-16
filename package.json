@@ -1,6 +1,6 @@
 {
   "name": "decidekit",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Turn any LLM into a typed decision engine: boolean, choice and score questions with validated answers.",
   "type": "module",
   "license": "MIT",

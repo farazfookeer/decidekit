@@ -51,6 +51,14 @@ Run them all and see per-question accuracy and the wrong answers:
 decidekit test examples/support-triage.yaml examples/support-triage.examples.yaml
 ```
 
+`content-moderation.examples.yaml` holds ten hand-labelled blog comments (safe,
+spam, harassment, violence, hate, self-harm and private details) for
+`content-moderation.yaml`:
+
+```sh
+decidekit test examples/content-moderation.yaml examples/content-moderation.examples.yaml --tolerance 1
+```
+
 See [the labelled examples format](../docs/labelled-examples-format.md).
 
 From TypeScript you can load any set with `loadQuestionSet`:

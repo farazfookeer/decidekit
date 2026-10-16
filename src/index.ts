@@ -3,7 +3,7 @@
  */
 
 /** The package version. Must equal "version" in package.json (tests/packageMeta.test.ts checks this). */
-export const VERSION = "0.0.0";
+export const VERSION = "0.1.0";
 
 export type {
   BooleanQuestion,

@@ -1,5 +1,7 @@
 # decidekit
 
+[![CI](https://github.com/farazfookeer/decidekit/actions/workflows/ci.yml/badge.svg)](https://github.com/farazfookeer/decidekit/actions/workflows/ci.yml) [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+
 Turn any LLM into a typed decision engine.
 
 decidekit is a free, open-source TypeScript library and CLI. You define questions with fixed answer types (`boolean`, `choice` or `score`), either in YAML files or inline in TypeScript. decidekit sends your text and questions to Claude (Anthropic API) or a local Ollama model, checks every answer against its declared type, and can measure accuracy against labelled examples.
